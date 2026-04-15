@@ -101,19 +101,19 @@ body {
     border:2px solid black;
 }
 
-#contactcontainer {
+.contactcontainer {
     border: 2px solid black;
     width: 500px;
     padding: 20px;
 }
 
-#numbercontainer, #mailcontainer, #namecontainer {
+.numbercontainer, .mailcontainer, .namecontainer {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-#delete, #edit, #favorite {
+.delete, .edit, .favorite {
     margin-left: auto;
     background: none;
     border: none;
@@ -124,7 +124,7 @@ body {
 }
 
 
-#numbercontainer {
+.numbercontainer {
     display: flex;
     align-items: center;
     gap: 10px;

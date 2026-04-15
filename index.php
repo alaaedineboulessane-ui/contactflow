@@ -1,16 +1,35 @@
 <?php
+
 $page = $_GET['page'] ?? 'home';
 
-if ($page === 'register') {
-    require_once 'controllers/AuthController.php';
-    $controller = new AuthController();
-    $controller->register();
-} elseif ($page === 'login') {
-    require_once 'controllers/AuthController.php';
-    $controller = new AuthController();
-    $controller->login();
-} else {
-    require_once 'controllers/HomeController.php';
-    $controller = new HomeController();
-    $controller->showHome();
+require_once 'controllers/AuthController.php';
+require_once 'controllers/HomeController.php';
+require_once 'controllers/ContactController.php'; 
+
+switch ($page) {
+
+    case 'register':
+        $controller = new AuthController();
+        $controller->register();
+        break;
+
+    case 'login':
+        $controller = new AuthController();
+        $controller->login();
+        break;
+
+    case 'contacts':
+        $controller = new ContactController();
+        $controller->list();
+        break;
+
+    case 'contact_add':
+        $controller = new ContactController();
+        $controller->add();
+        break;
+
+    default:
+        $controller = new HomeController();
+        $controller->showHome();
+        break;
 }

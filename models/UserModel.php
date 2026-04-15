@@ -29,4 +29,16 @@ class UserModel {
         $stmt->execute(['username' => $username]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-}
+    
+    public function addcontact($firstname, $lastname, $mail, $number) {
+        $sql = "INSERT INTO contact(firstname, lastname, mail, number)
+                VALUES (:firstname, :lastname, :mail, :number)";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'mail' => $mail,
+            'number' => $number]);
+
+
+    }};

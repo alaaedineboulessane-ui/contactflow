@@ -2,7 +2,7 @@
 session_start();
 
 $pdo = new PDO(
-    "mysql:host=localhost;dbname=gamekeeper;charset=utf8",
+    "mysql:host=localhost;dbname=contactflow;charset=utf8",
     "root",
     "",
     [

@@ -5,3 +5,11 @@ CREATE TABLE users (
     mail VARCHAR(255) NOT NULL UNIQUE,
     numero VARCHAR(20)
 );
+
+CREATE TABLE favorite (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    mail VARCHAR(255) NOT NULL UNIQUE,
+    numero VARCHAR(20)
+);

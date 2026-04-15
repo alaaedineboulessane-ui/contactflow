@@ -15,12 +15,12 @@
     <img src = "./img/plus.png" width="25px" height="auto"><a id = "createcontact">Créer un contact</a>
 </button>
 
-<form id = "firstform">
+<form id = "firstform" method = "POST" action="index.php?page=contact_add">
 
-    <input id = "name" placeholder="Votre prénom">
-    <input id = "lastname" placeholder="Votre nom">
-    <input id = "mail" placeholder="Votre adresse mail">
-    <input id = "phonenumber" placeholder="Votre numèro de telephone">
+    <input name = "firstname" id = "name" placeholder="Votre prénom">
+    <input name = "lastname" id = "lastname" placeholder="Votre nom">
+    <input name = "mail" id = "mail" placeholder="Votre adresse mail">
+    <input name = "number" id = "phonenumber" placeholder="Votre numèro de telephone">
     <button id = "send" type = "submit">Envoyer</button>
 
 </form>
@@ -33,35 +33,43 @@
 <div id = "espace"></div>
 
 
-<div id="contactcontainer">
+<?php foreach ($contacts as $contact): ?>
 
-    <div id="namecontainer">
-        <a id="name">TESTNAME</a>
+<div class="contactcontainer">
+
+    <div class="namecontainer">
+        <span><?= htmlspecialchars($contact['firstname']) ?> <?= htmlspecialchars($contact['lastname']) ?></span>
     </div>
 
-    <div id="mailcontainer">
+    <div class="mailcontainer">
         <img src="./img/mail.png" height="25px">
-        <a id="mail">TESTMAIL</a>
+        <span><?= htmlspecialchars($contact['mail']) ?></span>
     </div>
 
-    <div id="numbercontainer">
+    <div class="numbercontainer">
         <img src="./img/phone.png" height="25px">
-        <a id="number">TESTNUMERO</a>
+        <span><?= htmlspecialchars($contact['number']) ?></span>
 
         <div class="actions">
-            <button id="edit">
+
+            <button class="edit">
                 <img src="./img/crayon.png" height="25px">
             </button>
 
-            <button id="delete">
+            <button class="delete">
                 <img src="./img/trash.png" height="25px">
             </button>
 
-            <button id="favorite">
+            <button class="favorite">
                 <img src="./img/star.png" height="25px">
             </button>
+
         </div>
     </div>
+
+</div>
+
+<?php endforeach; ?>
 
 </div>
 <?php include __DIR__ . '/../includes/footer.php'; ?>
