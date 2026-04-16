@@ -52,4 +52,13 @@ class ContactModel {
         'number' => $number
     ]);
 }
+    public function deleteContact($id) {
+
+    $sql = "DELETE FROM contact WHERE id = :id";
+    $stmt = $this->pdo->prepare($sql);
+
+    return $stmt->execute([
+        'id' => $id
+    ]);
+}
 }

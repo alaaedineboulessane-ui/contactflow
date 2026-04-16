@@ -33,6 +33,11 @@ switch ($page) {
         $controller->edit();
         break;
 
+    case 'contact_delete':
+        $controller = new ContactController();
+        $controller -> delete();
+        break;
+
     default:
         $controller = new HomeController();
         $controller->showHome();

@@ -63,9 +63,10 @@
         <img src="./img/crayon.png" height="25px">
     </button>
 
-            <button class="delete">
-                <img src="./img/trash.png" height="25px">
-            </button>
+    <button class="delete"
+        onclick="openDeletePopup(<?= $contact['id'] ?>)">
+        <img src="./img/trash.png" height="25px">
+    </button>
 
             <button class="favorite">
                 <img src="./img/star.png" height="25px">
@@ -81,7 +82,7 @@
 
 <?php endforeach; ?>
 
-</div>
+
 
 
 <div id="editPopup" class="popup">
@@ -96,8 +97,22 @@
             <input type="email" name="mail" id="edit-mail">
             <input type="text" name="number" id="edit-number">
 
-            <button type="submit">Enregistrer</button>
+            <button type="submit" id = "imsure">Enregistrer</button>
             <button type="button" onclick="closePopup()">Annuler</button>
+        </form>
+    </div>
+</div>
+
+
+<div id="deletePopup" class="popup">
+    <div class="popup-content">
+        <h3>Êtes-vous sûr ?</h3>
+
+        <form method="POST" action="index.php?page=contact_delete">
+            <input type="hidden" name="id" id="delete-id">
+
+            <button type="submit" class = "areusure" name = "action" value = "delete">Oui</button>
+            <button type="button" onclick="closePopup()">Non</button>
         </form>
     </div>
 </div>

@@ -13,7 +13,6 @@ evenement.addEventListener("click", function() {
         afficher.style.display = "none"
         state = "off";
     }
-
 }) 
 
 
@@ -43,4 +42,14 @@ function openPopup(id, firstname, lastname, mail, number) {
 
 function closePopup() {
     document.getElementById("editPopup").style.display = "none";
+}
+
+function openDeletePopup(id) {
+    document.getElementById("deletePopup").style.display = "flex";
+    document.getElementById("delete-id").value = id;
+}
+
+function closePopup() {
+    document.getElementById("editPopup").style.display = "none";
+    document.getElementById("deletePopup").style.display = "none";
 }

@@ -64,4 +64,26 @@ class ContactController {
         }
     }
 }
+public function delete() {
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $id = $_POST['id'] ?? null;
+
+        if ($id) {
+
+            $model = new ContactModel();
+
+            if ($model->deleteContact($id)) {
+                header("Location: index.php?page=contacts");
+                exit;
+            } else {
+                echo "Erreur suppression";
+            }
+
+        } else {
+            echo "ID manquant";
+        }
+    }
+}
 }

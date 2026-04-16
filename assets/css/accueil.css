@@ -10,7 +10,6 @@ body {
     color: #e5e7eb;
 }
 
-/* espace */
 #espace {
     height: 20px;
 }
@@ -346,4 +345,13 @@ body {
     border-radius: 10px;
     border: none;
     cursor: pointer;
+}
+
+.areusure {
+    background-color: red;
+}
+
+#imsure {
+    background-color: green;
+    color: white;
 }
