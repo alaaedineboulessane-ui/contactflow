@@ -1,8 +1,11 @@
 <?php
+
+require_once __DIR__ . '/ContactController.php';
+
 class HomeController {
+
     public function showHome() {
-        require "views/AccueilView.php"; 
+        $contactController = new ContactController();
+        $contactController->list();
     }
 }
-
-

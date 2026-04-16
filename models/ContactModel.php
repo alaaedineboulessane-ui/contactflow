@@ -32,4 +32,24 @@ class ContactModel {
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function updateContact($id, $firstname, $lastname, $mail, $number) {
+
+    $sql = "UPDATE contact 
+            SET firstname = :firstname,
+                lastname = :lastname,
+                mail = :mail,
+                number = :number
+            WHERE id = :id";
+
+    $stmt = $this->pdo->prepare($sql);
+
+    return $stmt->execute([
+        'id' => $id,
+        'firstname' => $firstname,
+        'lastname' => $lastname,
+        'mail' => $mail,
+        'number' => $number
+    ]);
+}
 }

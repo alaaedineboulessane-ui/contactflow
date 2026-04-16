@@ -41,4 +41,6 @@ class UserModel {
             'number' => $number]);
 
 
-    }};
+    }
+    
+    };

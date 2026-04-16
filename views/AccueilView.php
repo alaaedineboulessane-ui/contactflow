@@ -52,9 +52,16 @@
 
         <div class="actions">
 
-            <button class="edit">
-                <img src="./img/crayon.png" height="25px">
-            </button>
+    <button class="edit"
+        onclick="openPopup(
+            <?= $contact['id'] ?>,
+            '<?= htmlspecialchars($contact['firstname']) ?>',
+            '<?= htmlspecialchars($contact['lastname']) ?>',
+            '<?= htmlspecialchars($contact['mail']) ?>',
+            '<?= htmlspecialchars($contact['number']) ?>'
+        )">
+        <img src="./img/crayon.png" height="25px">
+    </button>
 
             <button class="delete">
                 <img src="./img/trash.png" height="25px">
@@ -69,7 +76,29 @@
 
 </div>
 
+
+
+
 <?php endforeach; ?>
 
+</div>
+
+
+<div id="editPopup" class="popup">
+    <div class="popup-content">
+        <h3>Modifier le contact</h3>
+
+        <form method="POST" action="index.php?page=contact_edit">
+            <input type="hidden" name="id" id="edit-id">
+
+            <input type="text" name="firstname" id="edit-firstname">
+            <input type="text" name="lastname" id="edit-lastname">
+            <input type="email" name="mail" id="edit-mail">
+            <input type="text" name="number" id="edit-number">
+
+            <button type="submit">Enregistrer</button>
+            <button type="button" onclick="closePopup()">Annuler</button>
+        </form>
+    </div>
 </div>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

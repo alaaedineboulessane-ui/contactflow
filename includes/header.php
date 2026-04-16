@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Ma Collection de Jeux</title>
+    <title>ContacFlow</title>
     <link rel="stylesheet" href="./assets/css/accueil.css">
     <link rel="stylesheet" href="/assets/css/accueil.css">
 

@@ -4,7 +4,7 @@ $page = $_GET['page'] ?? 'home';
 
 require_once 'controllers/AuthController.php';
 require_once 'controllers/HomeController.php';
-require_once 'controllers/ContactController.php'; 
+require_once 'controllers/ContactController.php';
 
 switch ($page) {
 
@@ -26,6 +26,11 @@ switch ($page) {
     case 'contact_add':
         $controller = new ContactController();
         $controller->add();
+        break;
+
+    case 'contact_edit':
+        $controller = new ContactController();
+        $controller->edit();
         break;
 
     default:
