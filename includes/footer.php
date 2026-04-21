@@ -3,4 +3,4 @@
 </footer>
 <script src = "./assets/javascript/accueil.js"></script>
 </body>
-</html>
+</html> 

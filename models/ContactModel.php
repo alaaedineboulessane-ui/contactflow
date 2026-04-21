@@ -25,6 +25,22 @@ class ContactModel {
         ]);
     }
 
+    
+    public function addfavorite($firstname, $lastname, $mail, $number) {
+
+        $sql = "INSERT INTO favorite (firstname, lastname, mail, number)
+                VALUES (:firstname, :lastname, :mail, :number)";
+
+        $stmt = $this->pdo->prepare($sql);
+
+        return $stmt->execute([
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'mail' => $mail,
+            'number' => $number
+            ]);
+    }
+
     public function getAllContacts() {
 
         $sql = "SELECT * FROM contact ORDER BY id DESC";

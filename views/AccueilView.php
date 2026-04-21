@@ -5,8 +5,8 @@
 <div id = "espace"></div>
 <nav class="navbar">
     <div id = "navcontact">
-        <a href="../index.php">Contacts</a>
-        <a href="index.php?page=register">Favoris</a>
+        <a href="index.php?page=contacts" id="contactnav">Contacts</a>
+        <a href="index.php?page=favorites" id="favnav">Favoris</a>
         <a href="index.php?page=login">Exporter CSV</a>
     </div>
 </nav>
@@ -33,6 +33,7 @@
 <div id = "espace"></div>
 
 
+
 <?php foreach ($contacts as $contact): ?>
 
 <div class="contactcontainer">
@@ -42,12 +43,12 @@
     </div>
 
     <div class="mailcontainer">
-        <img src="./img/mail.png" height="25px">
+        <img src="https://uxwing.com/wp-content/themes/uxwing/download/communication-chat-call/email-envelope-line-white-icon.png" height="25px">
         <span><?= htmlspecialchars($contact['mail']) ?></span>
     </div>
 
     <div class="numbercontainer">
-        <img src="./img/phone.png" height="25px">
+        <img src="./img/phonewhite.png" height="25px">
         <span><?= htmlspecialchars($contact['number']) ?></span>
 
         <div class="actions">
@@ -60,16 +61,16 @@
             '<?= htmlspecialchars($contact['mail']) ?>',
             '<?= htmlspecialchars($contact['number']) ?>'
         )">
-        <img src="./img/crayon.png" height="25px">
+        <img src="./img/crayonwhite.png" height="25px">
     </button>
 
     <button class="delete"
         onclick="openDeletePopup(<?= $contact['id'] ?>)">
-        <img src="./img/trash.png" height="25px">
+        <img src="./img/trashwhite.png" height="25px">
     </button>
 
-            <button class="favorite">
-                <img src="./img/star.png" height="25px">
+            <button type="button" class="favorite starplatinum" data-state="off">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/arts-graphic-shapes/star-white-icon.png" height="25px">
             </button>
 
         </div>
@@ -116,4 +117,5 @@
         </form>
     </div>
 </div>
+
 <?php include __DIR__ . '/../includes/footer.php'; ?>

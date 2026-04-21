@@ -38,8 +38,19 @@ switch ($page) {
         $controller -> delete();
         break;
 
+    case 'contact_favorite':
+        $controller = new ContactController();
+        $controller->favorite();
+        break;
+
+    case 'favorites':
+        $controller = new ContactController();
+        $controller->favorites();
+        break;
+
     default:
         $controller = new HomeController();
         $controller->showHome();
         break;
+
 }

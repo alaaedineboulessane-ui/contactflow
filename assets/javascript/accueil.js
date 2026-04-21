@@ -1,7 +1,54 @@
 const evenement = document.getElementById("addcontact");
 const afficher = document.getElementById("firstform");
 const envoyer = document.getElementById("send");
+const contactnav = document.getElementById("contactnav");
+const favnav = document.getElementById("favnav");
+const pop = document.getElementById("success")
 let state = "off";
+let where = "home";
+const star = document.querySelectorAll("starplatinum")
+const buttonstar = document.querySelectorAll("buttonplatinum")
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const stars = document.querySelectorAll(".starplatinum");
+
+    stars.forEach(star => {
+
+        const img = star.querySelector("img");
+
+        star.addEventListener("click", () => {
+
+            if (star.dataset.state === "on") {
+                star.dataset.state = "off";
+                star.style.backgroundColor = "transparent";
+            } else {
+                star.dataset.state = "on";
+                star.style.backgroundColor = "yellow";
+            }
+
+        });
+
+    });
+
+});
+
+
+
+
+contactnav.addEventListener("click", function () {
+    where = "home";
+    updateNav();
+});
+
+favnav.addEventListener("click", function () {
+    where = "favorite";
+    updateNav();
+});
+
+updateNav();
+
 
 
 evenement.addEventListener("click", function() {
@@ -16,10 +63,7 @@ evenement.addEventListener("click", function() {
 }) 
 
 
-envoyer.addEventListener("click", function(){
-    alert("Votre contact a été ajouté !")
-    afficher.style.display = "none";
-})
+
 
 function openPopup() {
     document.getElementById("myPopup").showModal();
@@ -53,3 +97,21 @@ function closePopup() {
     document.getElementById("editPopup").style.display = "none";
     document.getElementById("deletePopup").style.display = "none";
 }
+
+function updateNav() {
+    contactnav.style = "";
+    favnav.style = "";
+
+    if (where == "home") {
+        contactnav.style.backgroundColor = "black";
+        contactnav.style.padding = "5px";
+        contactnav.style.border = "2px solid white";
+        contactnav.style.borderRadius = "10px";
+    } else {
+        favnav.style.backgroundColor = "black";
+        favnav.style.padding = "5px";
+        favnav.style.border = "2px solid white";
+        favnav.style.borderRadius = "10px";
+    }
+}
+

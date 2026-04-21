@@ -38,6 +38,40 @@ class ContactController {
         }
     }
 
+    public function favorite() {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+        $firstname = $_POST["firstname"] ??"";
+        $lastname = $_POST["lastname"] ??"";
+        $mail = $_POST["mail"] ?? '';
+        $number = $_POST['number'] ??'';
+
+        if (!empty($firstname) && !empty($lastname) && !empty($mail) && !empty($number)) {
+
+            $model = new ContactModel();
+
+            if ($model->addfavorite($firstname, $lastname, $mail, $number)) {
+                header("Location: index.php?page=contacts");
+                exit;
+            } else {
+                echo "Erreur insertion contact";
+            }
+
+        }else{
+            echo "champs manquants";
+        }
+    }
+    }
+
+
+public function favorites() {
+
+    $model = new ContactModel();
+    $contacts = $model->getAllFavorites();
+
+    require __DIR__ . '/../views/AccueilView.php';
+}
+
     public function edit() {
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
